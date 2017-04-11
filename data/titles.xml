@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE presidents SYSTEM "presidents.dtd">
+<root xmlns:h="http://www.w3.org/1999/xhtml" xmlns:t="http://funnybooknames.com/crockford">
+  <h:head>
+      <h:title>Basic HTML Sample</h:title>
+  </h:head>
+  <t:book id ="1">
+      <t:author>Douglas Crockford</t:author>
+      <t:title>JavaScript: The Good Parts</t:title>
+  </t:book>
+</root>
