@@ -1,24 +1,20 @@
-# wR‚É‚æ‚éƒf[ƒ^Ž©“®ŽûWx
-#@‘æ 5 Í@HTTP
+# ã€ŽRã«ã‚ˆã‚‹ãƒ‡ãƒ¼ã‚¿è‡ªå‹•åŽé›†ã€
+##ã€€ç¬¬ 5 ç« ã€€HTTP
 
 library(RCurl)
 
 library(stringr)
 
-## Í‚È‚¢‚µß‚È‚¢‚µ€”Ô†‚Ì‚ ‚é‰ÓŠƒVƒƒ[ƒv‚Q‚Â
-### ”Ô†‚Ì‚È‚¢Œ©o‚µ•”•ª‚ÍƒVƒƒ[ƒv‚R‚Â
+### 5.1.2 URL æ§‹æ–‡  URL ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°
 
-## 5.1.2 URL \•¶
-### URL ƒGƒ“ƒR[ƒfƒBƒ“ƒO
-
-t <- "Ifm Eddie! How are you &you? 1 + 1 = 2"
+t <- "Iâ€™m Eddie! How are you &you? 1 + 1 = 2"
 
 (url <- URLencode(t))
 
 (url <- URLencode(t, reserve =TRUE))
 
 
-## 5.2.1.1 ƒNƒ‰ƒCƒAƒ“ƒgŽ¯•Ê‚Ì‚½‚ß‚Ì HTTP ƒwƒbƒ_ƒtƒB[ƒ‹ƒh
+### 5.2.1.1 ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆè­˜åˆ¥ã®ãŸã‚ã® HTTP ãƒ˜ãƒƒãƒ€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 
 R.version$version.string
 
@@ -38,43 +34,38 @@ getURL("http://httpbin.org/headers",
 getURL("http://httpbin.org/headers", 
        httpheader = c(From = "eddie@r-collection.com"))
 
-url <- "www.r-datacollection.com/materials/http/helloworld.html"
+
+### 5.2.1.2 Cookie Cookie ã®ç¨®é¡ž
+
+cat(getURL("http://httpbin.org/headers", cookie = "id=12345;domain=httpbin.org"))
 
 
-## 5.2.1.2 Cookie
-### Cookie ‚ÌŽí—Þ
-
-cat(getURL("http://httpbin.org/headers", 
-cookie = "id=12345;domain=httpbin.org"))
-
-
-## @5.2.2 ”FØ
-### ƒx[ƒVƒbƒN”FØ
+### ã€€5.2.2 èªè¨¼  ãƒ™ãƒ¼ã‚·ãƒƒã‚¯èªè¨¼
 (secret <- base64("This is a secret message"))
 
 base64Decode(secret)
 
 
-## 5.2.3 ƒvƒƒLƒV
-### ƒvƒƒLƒV‚Ìƒ^ƒCƒv
-### ‰Ë‹ó‚ÌƒvƒƒLƒV‚ðŽw’è‚µ‚½—á
+### 5.2.3 ãƒ—ãƒ­ã‚­ã‚·
+# ãƒ—ãƒ­ã‚­ã‚·ã®ã‚¿ã‚¤ãƒ—
+# æž¶ç©ºã®ãƒ—ãƒ­ã‚­ã‚·ã‚’æŒ‡å®šã—ãŸä¾‹
 # getURL("http://httpbin.org/headers",
 #        proxy = "109.205.54.112:8080",
 #        followlocation = TRUE)
 
-## 5.3 HTTP ˆÈŠO‚ÌƒvƒƒgƒRƒ‹
+### 5.3 HTTP ä»¥å¤–ã®ãƒ—ãƒ­ãƒˆã‚³ãƒ«
 
 curlVersion()$protocols
 
 
-## 5.4 HTTP ƒvƒƒgƒRƒ‹‚ÌŽÀÛ
-### 5.4.1 libcurl ƒ‰ƒCƒuƒ‰ƒŠ
+### 5.4 HTTP ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã®å®Ÿéš›
+### 5.4.1 libcurl ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
 
 names(getCurlOptionsConstants())
 
 
-## 5.4.2 Šî–{“I‚ÈƒŠƒNƒGƒXƒgƒƒ\ƒbƒh
-### 5.4.2.1 GET ƒƒ\ƒbƒh
+### 5.4.2 åŸºæœ¬çš„ãªãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ¡ã‚½ãƒƒãƒ‰
+### 5.4.2.1 GET ãƒ¡ã‚½ãƒƒãƒ‰
 
 getURL("http://www.r-datacollection.com/materials/http/helloworld.html")
 
@@ -82,7 +73,7 @@ pngfile <- getBinaryURL("http://www.r-datacollection.com/materials/http/sky.png"
 
 writeBin(pngfile, "sky.png")
 
-### GET ƒtƒH[ƒ€
+### GET ãƒ•ã‚©ãƒ¼ãƒ 
 
 url <- "http://www.r-datacollection.com/materials/http/GETexample.php"
 
@@ -98,8 +89,8 @@ url <- "http://www.r-datacollection.com/materials/http/GETexample.php"
 
 cat(getForm(url, name = "Eddie", age = 32))
 
-## 5.4.2.2 POST ƒƒ\ƒbƒh
-### POST ƒtƒH[ƒ€
+### 5.4.2.2 POST ãƒ¡ã‚½ãƒƒãƒ‰
+### POST ãƒ•ã‚©ãƒ¼ãƒ 
 
 url <- "http://www.r-datacollection.com/materials/http/POSTexample.php"
 
@@ -107,16 +98,16 @@ cat(postForm(url, name = "Eddie", age = 32,
              style="post"))
 
 
-## 5.4.2.3 ‚»‚Ì‘¼‚Ì•û–@
+### 5.4.2.3 ãã®ä»–ã®æ–¹æ³•
 
 url <- "r-datacollection.com/materials/http/helloworld.html"
 
 res <- getURL(url = url, customrequest = "HEAD",
               header = TRUE)
 
-cat(str_split(res,"\r")[[1]])
+cat(str_split(res,"Â¥r")[[1]])
 
-## 5.4.3 RCurl ‚Ì’á…€ŠÖ”
+### 5.4.3 RCurl ã®ä½Žæ°´æº–é–¢æ•°
 
 url <- "www.r-datacollection.com/materials/http/helloworld.html"
 
@@ -151,8 +142,8 @@ header$value()
 names(debug$value())
 
 
-## 5.4.4 ƒŠƒNƒGƒXƒgŠÔ‚Å‚ÌƒRƒlƒNƒVƒ‡ƒ“ˆÛŽ
-### curl ƒnƒ“ƒhƒ‹
+### 5.4.4 ãƒªã‚¯ã‚¨ã‚¹ãƒˆé–“ã§ã®ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ç¶­æŒ
+### curl ãƒãƒ³ãƒ‰ãƒ«
 
 handle <- getCurlHandle()
 
@@ -168,61 +159,60 @@ urls <- sprintf("http://www.r-datacollection.com/materials/http/abunchofasciis/f
 lapply(urls, getURL, curl = handle)
 
 
-### ƒnƒ“ƒhƒ‹‚ð•Â‚¶‚é
+### ãƒãƒ³ãƒ‰ãƒ«ã‚’é–‰ã˜ã‚‹
 handle2 <- dupCurlHandle(handle,
                          httpheader = c(from = "ed@datacollection.com"))
 
 
-## 5.4.5 ƒIƒvƒVƒ‡ƒ“
-### ˆø”‚Æ‚µ‚ÄƒIƒvƒVƒ‡ƒ“‚ð—^‚¦‚é
+### 5.4.5 ã‚ªãƒ—ã‚·ãƒ§ãƒ³
+### å¼•æ•°ã¨ã—ã¦ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ä¸Žãˆã‚‹
 
 url <- "www.r-datacollection.com/materials/http/helloworld.html"
 
 res <- getURL(url = url, header = TRUE)
 
-cat(str_split(res, "\r")[[1]])
+cat(str_split(res, "Â¥r")[[1]])
 
 
-### ƒnƒ“ƒhƒ‹‚ÌƒIƒvƒVƒ‡ƒ“
+### ãƒãƒ³ãƒ‰ãƒ«ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³
 
 handle <- getCurlHandle(customrequest = "HEAD")
 
 res <- getURL(url = url, curl = handle)
 
-cat(str_split(res, "\r")[[1]])
+cat(str_split(res, "Â¥r")[[1]])
 
-res <- getURL(url = url, header = TRUE)
+res <- getURL(url = url, curl = handle, header = TRUE)
 
 library(stringr)
 
-cat(str_split(res, "\r")[[1]])
+cat(str_split(res, "Â¥r")[[1]])
 
-handle <- getCurlHandle(customrequest = "HEAD")
-
-res <- getURL(url = url, curl = handle)
-
-cat(str_split(res, "\r")[[1]])
+# handle <- getCurlHandle(customrequest = "HEAD")
 
 res <- getURL(url = url, curl = handle)
 
-cat(str_split(res, "\r")[[1]])
+cat(str_split(res, "Â¥r")[[1]])
 
 curl_options <- curlOptions(header = TRUE,
                             customrequest = "HEAD")
 
 res <- getURL(url = url, .opts = curl_options)
 
+cat(str_split(res, "Â¥r")[[1]])
 
-### ƒOƒ[ƒoƒ‹ƒIƒvƒVƒ‡ƒ“
+### ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ—ã‚·ãƒ§ãƒ³
 
 curl_options <- curlOptions(header = TRUE, 
                             customrequest = "HEAD")
 
 res <- getURL(url = url, .opts = curl_options)
 
+cat(str_split(res, "Â¥r")[[1]])
+
 cat(postForm(url, .params = c(name = "Eddie", age = "32"),
              style = "post",
-             .opts = list(useragent = "Eddiefs R scraper",
+             .opts = list(useragent = "Eddieâ€™s R scraper",
                           referer = "www.r-datacollection.com")))
 
 
@@ -231,21 +221,23 @@ options(RCurlOptions = list(header = TRUE,
 
 res <- getURL(url = url)
 
+cat(str_split(res, "Â¥r")[[1]])
+
 options(RCurlOptions = list())
 
 res <- getURL("www.r-datacollection.com/materials/http/POSTexample.php",
               customrequest = "POST",
               postfields = "name=Eddie&age=32")
 
-cat(str_split(res, "\r")[[1]])
+cat(str_split(res, "Â¥r")[[1]])
 
-### ƒŠƒNƒGƒXƒgƒwƒbƒ_ƒtƒB[ƒ‹ƒh‚Ì’Ç‰Á
+### ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ˜ãƒƒãƒ€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®è¿½åŠ 
 
 url <- "r-datacollection.com/materials/http/ReturnHTTP.php"
 
 res <- getURL(url = url)
 
-cat(str_split(res, "\r")[[1]])
+cat(str_split(res, "Â¥r")[[1]])
 
 standardHeader <- list(
   from = "eddie@r-datacollection.com",
@@ -257,10 +249,10 @@ standardHeader <- list(
 res <- getURL(url = url,
               httpheader = standardHeader)
 
-cat(str_split(res, "\r")[[1]])
+cat(str_split(res, "Â¥r")[[1]])
 
 
-### ƒfƒtƒHƒ‹ƒg‚ÌƒIƒvƒVƒ‡ƒ“
+### ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³
 
 defaultOptions <- curlOptions(
   httpheader = list(
@@ -282,7 +274,7 @@ options(RCurlOptions = defaultOptions)
 
 options(RCurlOptions = list())
 
-## 5.4.6 ƒfƒoƒbƒO
+### 5.4.6 ãƒ‡ãƒãƒƒã‚°
 
 getURL("http://www.stata-datacollection.com")
 
@@ -292,7 +284,7 @@ res <- getURL(url = url)
 
 cat(res)
 
-### RCurl ‚ÌƒfƒoƒbƒOŠÖ”
+### RCurl ã®ãƒ‡ãƒãƒƒã‚°é–¢æ•°
 debugInfo <- debugGatherer()
 
 names(debugInfo)
@@ -309,15 +301,16 @@ names(debugInfo$value())
 
 cat(debugInfo$value()["text"])
 
-cat(str_split(debugInfo$value()["headerIn"], "\r")[[1]])
+cat(str_split(debugInfo$value()["headerIn"], "Â¥r")[[1]])
 
-cat(str_split(debugInfo$value()["headerOut"], "\ r")[[1]])
+cat(str_split(debugInfo$value()["headerOut"], "Â¥ r")[[1]])
 
-cat(str_split(debugInfo$value()["dataIn"], "\r")[[1]]) 
+cat(str_split(debugInfo$value()["dataIn"], "Â¥r")[[1]]) 
 
-cat(str_split(debugInfo$value()["dataOut"], "\r")[[1]])
+cat(str_split(debugInfo$value()["dataOut"], "Â¥r")[[1]])
 
-cat(str_split(debugInfo$value()["sslDataIn"], "\r")[[1]])
+cat(str_split(debugInfo$value()["sslDataIn"], "Â¥r")[[1]])
+cat(str_split(debugInfo$value()["sslDataOut"], "Â¥r")[[1]])
 
 
 handle <- getCurlHandle()
@@ -338,7 +331,7 @@ preTransTimeReuse <- rep(NA, 10)
 
 url <- "r-datacollection.com/materials/http/helloworld.html"
 
-#R> # ƒRƒlƒNƒVƒ‡ƒ“‚ðÄ—˜—p‚µ‚È‚¢ê‡
+#R> # ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åˆ©ç”¨ã—ãªã„å ´åˆ
 for(i in 1:10){
   handle <- getCurlHandle()
   res <- getURL(url=url, curl=handle)
@@ -346,7 +339,7 @@ for(i in 1:10){
   preTransTimeNoReuse[i] <- handleInfo$pretransfer.time
 }
 
-#R> # Ä—˜—p‚·‚éê‡
+#R> # å†åˆ©ç”¨ã™ã‚‹å ´åˆ
 handle <- getCurlHandle()
 for(i in 1:10){
   res <- getURL(url=url, curl=handle)
@@ -359,7 +352,7 @@ preTransTimeNoReuse
 preTransTimeReuse
 
 
-### 5.4.7 ƒGƒ‰[ˆ—
+### 5.4.7 ã‚¨ãƒ©ãƒ¼å‡¦ç†
 
 getCurlErrorClassNames()[c(2:4, 7, 8, 10, 23, 29, 35, 64)]
 
@@ -380,4 +373,4 @@ res <- tryCatch(
   }
 )
 
-cat(str_split(res,"\ r")[[1]])
+cat(str_split(res,"Â¥ r")[[1]])

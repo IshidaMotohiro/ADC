@@ -1,15 +1,22 @@
 # 『Rによるデータ自動収集 -- Webスクレイピングとテキストマイニングの実践ガイド --』
 ## 第 5 章 HTML
 
-### 2.4.1  DOM
+### 2.4.1  パーサーとは
 
+url <- "http://www.r-datacollection.com/materials/html/fortunes.html"
+
+fortunes <- readLines(con = url)
+
+fortunes
+
+#### 2.4.1 DOM
 library(XML)
 
 parsed_fortunes <- htmlParse(file = url)
 
 print(parsed_fortunes)
 
-### 2.4.2 ハンドラ関数の指
+### 2.4.2 ハンドラ関数の指定
 
 h1 <- list("body" = function(x){NULL})
 
@@ -28,6 +35,9 @@ h2 <- list(
 )
 
 parsed_fortunes <- htmlTreeParse(file = url, handlers = h2, asTree = TRUE)
+
+parsed_fortunes
+
 
 ### 2.4.3 クロージャーとしてのハンドラ関数
 
