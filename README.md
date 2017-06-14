@@ -6,3 +6,6 @@ http://www.kyoritsu-pub.co.jp/bookdetail/9784320124165
 
 - アマゾン
 https://www.amazon.co.jp/gp/product/4320124162?
+
+- 正誤表
+https://github.com/IshidaMotohiro/ADC/wiki/%E6%AD%A3%E8%AA%A4%E8%A1%A8
