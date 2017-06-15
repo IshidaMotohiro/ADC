@@ -5,6 +5,7 @@
 library(RCurl)
 library(XML)
 library(stringr)
+library(plyr)
 
 ### 9.1.1 すでに整形されたデータのダウンロード
 #### 9.1.1.1 CSV フォーマットによる選挙データ
