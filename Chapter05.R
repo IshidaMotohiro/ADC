@@ -105,7 +105,7 @@ url <- "r-datacollection.com/materials/http/helloworld.html"
 res <- getURL(url = url, customrequest = "HEAD",
               header = TRUE)
 
-cat(str_split(res,"¥r")[[1]])
+cat(str_split(res,"\r")[[1]])
 
 ### 5.4.3 RCurl の低水準関数
 
@@ -171,7 +171,7 @@ url <- "www.r-datacollection.com/materials/http/helloworld.html"
 
 res <- getURL(url = url, header = TRUE)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 
 ### ハンドルのオプション
@@ -180,26 +180,26 @@ handle <- getCurlHandle(customrequest = "HEAD")
 
 res <- getURL(url = url, curl = handle)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 res <- getURL(url = url, curl = handle, header = TRUE)
 
 library(stringr)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 # handle <- getCurlHandle(customrequest = "HEAD")
 
 res <- getURL(url = url, curl = handle)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 curl_options <- curlOptions(header = TRUE,
                             customrequest = "HEAD")
 
 res <- getURL(url = url, .opts = curl_options)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 ### グローバルオプション
 
@@ -208,7 +208,7 @@ curl_options <- curlOptions(header = TRUE,
 
 res <- getURL(url = url, .opts = curl_options)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 cat(postForm(url, .params = c(name = "Eddie", age = "32"),
              style = "post",
@@ -221,7 +221,7 @@ options(RCurlOptions = list(header = TRUE,
 
 res <- getURL(url = url)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 options(RCurlOptions = list())
 
@@ -229,7 +229,7 @@ res <- getURL("www.r-datacollection.com/materials/http/POSTexample.php",
               customrequest = "POST",
               postfields = "name=Eddie&age=32")
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 ### リクエストヘッダフィールドの追加
 
@@ -237,7 +237,7 @@ url <- "r-datacollection.com/materials/http/ReturnHTTP.php"
 
 res <- getURL(url = url)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 standardHeader <- list(
   from = "eddie@r-datacollection.com",
@@ -249,7 +249,7 @@ standardHeader <- list(
 res <- getURL(url = url,
               httpheader = standardHeader)
 
-cat(str_split(res, "¥r")[[1]])
+cat(str_split(res, "\r")[[1]])
 
 
 ### デフォルトのオプション
@@ -301,16 +301,16 @@ names(debugInfo$value())
 
 cat(debugInfo$value()["text"])
 
-cat(str_split(debugInfo$value()["headerIn"], "¥r")[[1]])
+cat(str_split(debugInfo$value()["headerIn"], "\r")[[1]])
 
-cat(str_split(debugInfo$value()["headerOut"], "¥ r")[[1]])
+cat(str_split(debugInfo$value()["headerOut"], "\r")[[1]])
 
-cat(str_split(debugInfo$value()["dataIn"], "¥r")[[1]]) 
+cat(str_split(debugInfo$value()["dataIn"], "\r")[[1]]) 
 
-cat(str_split(debugInfo$value()["dataOut"], "¥r")[[1]])
+cat(str_split(debugInfo$value()["dataOut"], "\r")[[1]])
 
-cat(str_split(debugInfo$value()["sslDataIn"], "¥r")[[1]])
-cat(str_split(debugInfo$value()["sslDataOut"], "¥r")[[1]])
+cat(str_split(debugInfo$value()["sslDataIn"], "\r")[[1]])
+cat(str_split(debugInfo$value()["sslDataOut"], "\r")[[1]])
 
 
 handle <- getCurlHandle()
@@ -373,4 +373,4 @@ res <- tryCatch(
   }
 )
 
-cat(str_split(res,"¥ r")[[1]])
+cat(str_split(res,"\r")[[1]])
