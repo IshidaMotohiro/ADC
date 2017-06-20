@@ -2,12 +2,12 @@
 ## 第 11 章 データ分析プロジェクトの管理
 ### 11.2 複数のドキュメントやリンクの処理
 ### 11.2.1 for ループの使用
-all_files <- dir("stocks")
+all_files <- dir("data/stocks")
 all_files
 
 closing_stock <- list()
 for(i in 1:length(all_files)){
-  path <- str_c("stocks/", all_files[i])
+  path <- str_c("data/stocks/", all_files[i])
   parsed_stock <- xmlParse(path)
   closing_stock[[i]] <- xpathSApply(parsed_stock, "//Apple", getStock)
 }
@@ -67,7 +67,7 @@ while(length(xpathSApply(current_document, xpath_for_next_page, xmlGetAttr, "hre
 }
 
 ### 11.2.3 plyr パッケージの使用
-files <- str_c("stocks/", all_files)
+files <- str_c("data/stocks/", all_files)
 
 getStock2 <- function(file){
   parsedStock <- xmlParse(file)
@@ -138,14 +138,14 @@ N <- length(links)
 for(i in 1:N){
   stocks <- getURL(links[i])
   name <- basename(links[i])
-  write(stocks, file = str_c("stocks/", name))
+  write(stocks, file = str_c("data/stocks/", name))
   cat(i, "of", N, "\n")
 }
 
 for(i in 1:N){
   stocks <- getURL(links[i])
   name <- basename(links[i])
-  write(stocks, file = str_c("stocks/", name))
+  write(stocks, file = str_c("data/stocks/", name))
   cat(i, "of", N, "-", name, "\n")
 }
 
@@ -162,7 +162,7 @@ N <- length(links)
 for(i in 1:N){
   stocks <- getURL(links[i])
   name <- basename(links[i])
-  write(stocks, file = str_c("stocks/", name))
+  write(stocks, file = str_c("data/stocks/", name))
   feedback <- str_c(i, "of", N, "-", name, "\n", sep = " ")
   cat(feedback)
   write(feedback, "download.txt", append = T)
@@ -175,7 +175,7 @@ progress_bar <- txtProgressBar(min = 0, max = N, style = 3)
 for(i in 1:N){
   stocks <- getURL(links[i])
   name <- basename(links[i])
-  write(stocks, file = str_c("stocks/", name))
+  write(stocks, file = str_c("data/stocks/", name))
   setTxtProgressBar(progress_bar, i)
   Sys.sleep(1)
 }
