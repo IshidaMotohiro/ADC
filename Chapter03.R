@@ -4,20 +4,20 @@
 ### 3.5.1 XML の解析
 
 library(XML)
-parsed_stocks <- xmlParse(file = "stocks/technology.xml")
+parsed_stocks <- xmlParse(file = "data/stocks/technology.xml")
 
 
 ### XML の検証(バリデーション)
 
 library(XML)
-parsed_stocks <- xmlParse(file = "stocks/technology.xml", validate = TRUE)
+parsed_stocks <- xmlParse(file = "data/stocks/technology.xml", validate = TRUE)
 
 library(XML)
-stocks <- xmlParse(file = "stocks/technology-manip.xml", validate = TRUE)
+stocks <- xmlParse(file = "data/stocks/technology-manip.xml", validate = TRUE)
 
 ### 3.5.2 XMLドキュメント上の基本的な操作
 
-bond <- xmlParse("bond.xml")
+bond <- xmlParse("data/bond.xml")
 class(bond)
 
 root <- xmlRoot(bond)
@@ -36,7 +36,7 @@ root[["movie"]][[1]][[1]]
 
 ### XML ベースのドキュメントへのアクセス
 
-xmlParse("rsscode.rss")
+xmlParse("data/rsscode.rss")
 
 ### XML からデータフレームやリストへ
 
@@ -67,7 +67,7 @@ branchFun <- function(){
 }
 
 (h5 <- branchFun())
-invisible(xmlEventParse(file = "stocks/technology.xml", branches = h5, handlers = list()))
+invisible(xmlEventParse(file = "data/stocks/technology.xml", branches = h5, handlers = list()))
 
 apple.stock <- h5$getStore()
 head(apple.stock, 5)
@@ -76,8 +76,8 @@ head(apple.stock, 5)
 ### 3.8 JSONとRの練習
 
 library(RJSONIO)
-isValidJSON("indy.json")
-indy <- fromJSON("indy.json") 
+isValidJSON("data/indy.json")
+indy <- fromJSON("data/indy.json") 
 
 
 ### fromJSON()
@@ -99,13 +99,13 @@ indy.df <- do.call("rbind.fill", lapply(lapply(indy.unlist, t), data.frame, stri
 names(indy.df)
 
 
-peanuts.json <- fromJSON("peanuts.json", nullValue=NA, simplify = FALSE)
+peanuts.json <- fromJSON("data/peanuts.json", nullValue=NA, simplify = FALSE)
 peanuts.df <- do.call("rbind", lapply(peanuts.json, data.frame, stringsAsFactors = FALSE))
 peanuts.df
 
 ### toJSON
 peanuts.out.json <- toJSON(peanuts.df, pretty = TRUE)
-file.output <- file("peanuts_out.json")
+file.output <- file("data/peanuts_out.json")
 writeLines(peanuts.out.json, file.output)
 close(file.output)
 
@@ -123,7 +123,7 @@ fromJSON(x)
 x <- '[1, "foo", null, false]'
 fromJSON(x)
 
-(peanuts.json <- fromJSON("peanuts.json"))
+(peanuts.json <- fromJSON("data/peanuts.json"))
 
 (indy <- fromJSON("data/indy.json"))
 indy.df <- indy$`indy movies`
