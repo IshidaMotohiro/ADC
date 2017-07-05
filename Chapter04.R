@@ -5,7 +5,7 @@
 ### 最初のポイント：解析
 
 library(XML)
-parsed_doc <- htmlParse(file = "fortunes.html")
+parsed_doc <- htmlParse(file = "data/fortunes.html")
 print(parsed_doc)
 
 ### 4.2 XPathによるノードセットの識別
@@ -103,7 +103,7 @@ xpathSApply(parsed_doc, "//div", idFun)
 
 ### 4.3.1.1 XPath式による変数の使用
 
-parsed_stocks <- xmlParse(file = "technology.xml")
+parsed_stocks <- xmlParse(file = "data/stocks/technology.xml")
 companies <- c("Apple", "IBM", "Google")
 
 (expQuery <- sprintf("//%s/close", companies))
@@ -121,7 +121,7 @@ head(stocks,3)
 
 ### 4.3.2 XML名前空間
 
-parsed_xml <- xmlParse("titles.xml")
+parsed_xml <- xmlParse("data/titles.xml")
 parsed_xml
 
 xpathSApply(parsed_xml, "//title", fun = xmlValue)
