@@ -171,6 +171,8 @@ url <- "www.r-datacollection.com/materials/http/helloworld.html"
 
 res <- getURL(url = url, header = TRUE)
 
+library(stringr)
+
 cat(str_split(res, "\r")[[1]])
 
 
@@ -184,8 +186,6 @@ cat(str_split(res, "\r")[[1]])
 
 res <- getURL(url = url, curl = handle, header = TRUE)
 
-library(stringr)
-
 cat(str_split(res, "\r")[[1]])
 
 # handle <- getCurlHandle(customrequest = "HEAD")
@@ -194,12 +194,10 @@ res <- getURL(url = url, curl = handle)
 
 cat(str_split(res, "\r")[[1]])
 
-curl_options <- curlOptions(header = TRUE,
-                            customrequest = "HEAD")
+handle2 <- dupCurlHandle(handle)
 
-res <- getURL(url = url, .opts = curl_options)
+res <- getURL(url = url, curl = handle2 
 
-cat(str_split(res, "\r")[[1]])
 
 ### グローバルオプション
 
