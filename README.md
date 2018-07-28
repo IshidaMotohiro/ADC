@@ -10,3 +10,6 @@ https://www.amazon.co.jp/gp/product/4320124162?
 
 - 正誤表
 https://github.com/IshidaMotohiro/ADC/wiki/%E6%AD%A3%E8%AA%A4%E8%A1%A8
+
+- 原著コード・データ
+https://github.com/crubba/Wiley-ADCR
